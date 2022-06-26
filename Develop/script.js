@@ -16,14 +16,12 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var correctPrompts = getPrompts();
   var passwordText = document.querySelector("#password");
-
-
   if (correctPrompts) {
   var newPassword = generatePassword();
   passwordText.value = newPassword;
-} else {
+  } else {
   passwordText.value = "";
-}
+  }
 }
 
 function generatePassword() {
