@@ -38,26 +38,25 @@ function generatePassword() {
 function getPrompts() {
   choiceArray = [];
   characterLength = parseInt(prompt("How many characters do you want your password to be? (8-128 Characters)"));
-  if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
-    alert("Character length invalid: type an integer between 8-128");
-    return getPrompts;
-  }
 
+  if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
+    alert("Character length invalid: type an integer between 8-128. Please try again!!!");
+    return false;
+  }
   if (confirm("Would you like lowercase letters in your password?")) {
       choiceArray = choiceArray.concat(lowerArr);
     }
 
-    if (confirm("Would you like uppercase letters in your password?")) {
+  if (confirm("Would you like uppercase letters in your password?")) {
       choiceArray = choiceArray.concat(upperArr);
     }
 
-    if (confirm("Would you like numbers in your password?")) {
+  if (confirm("Would you like numbers in your password?")) {
       choiceArray = choiceArray.concat(numberArr);
     }
 
-    if (confirm("Would you like special characters in your password?")) {
+  if (confirm("Would you like special characters in your password?")) {
       choiceArray = choiceArray.concat(specialCharArr);
     }
     return true;
-  }
-
+}
