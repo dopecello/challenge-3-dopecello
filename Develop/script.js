@@ -1,5 +1,5 @@
 var characterLength = 8;
-var choiceArray =[];
+var choiceArray = [];
 
 var specialCharArr = ['!', '@', '#', '$', '%', '^', '&', '*', '|', '~'];
 var lowerArr =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]; 
@@ -21,17 +21,33 @@ function writePassword() {
 
 }
 function generatePassword() {
-  console.log("You clicked the button!")
-  // 1. Prompt user for the password criteria
-    //    a. Password length 1-128
- let passwordLength = window.prompt("Type in password length (8-128)")
- console.log(passwordLength)
-  //    b. then, lower, upper, numbers, special char.
-  // 2. Validate the input,
-  // 3. Generate Password
 
-
-  // 4. Display password on the page.
-
-  return "Generated password will go here.";
 }
+
+function getPrompts() {
+
+  choiceArray = [];
+  characterLength = parseInt(prompt("How many characters do you want your password to be? (8-128 Characters)"));
+  if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
+    alert("Character length invalid: type an integer between 8-128");
+    return false;
+  }
+
+  if (confirm("Would you like lowercase letters in your password?")) {
+      choiceArray = choiceArray.concat(lowerArr);
+    }
+
+    if (confirm("Would you like uppercase letters in your password?")) {
+      choiceArray = choiceArray.concat(upperArr);
+    }
+
+    if (confirm("Would you like numbers in your password?")) {
+      choiceArray = choiceArray.concat(numberArr);
+    }
+
+    if (confirm("Would you like special characters in your password?")) {
+      choiceArray = choiceArray.concat(specialCharArr);
+    }
+    return true;
+  }
+
